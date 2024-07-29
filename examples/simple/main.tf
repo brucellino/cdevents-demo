@@ -1,21 +1,32 @@
 # This is the default example
-# customise it as you see fit for your example usage of your module
+terraform {
+  required_providers {
+    vault = {
+      source  = "hashicorp/vault"
+      version = "~> 4"
+    }
+    cloudflare = {
+      source  = "cloudflare/cloudflare"
+      version = "~> 4"
+    }
+  }
+  backend "consul" {
+    scheme = "http"
+    path   = "terraform/cloudflare-cd"
+  }
+}
+provider "vault" {}
 
-# add provider configurations here, for example:
-# provider "aws" {
-#
-# }
+data "vault_kv_secret_v2" "cloudflare_token" {
+  mount = "cloudflare"
+  name  = "eoscnode.org"
+}
 
-# Declare your backends and other terraform configuration here
-# This is an example for using the consul backend.
-# terraform {
-#   backend "consul" {
-#     path = "test_module/simple"
-#   }
-# }
+provider "cloudflare" {
+  api_token = data.vault_kv_secret_v2.cloudflare_token.data["token"]
+}
 
 
 module "example" {
   source = "../../"
-  dummy  = "test"
 }
