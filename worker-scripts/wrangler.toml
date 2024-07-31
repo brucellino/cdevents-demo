@@ -1,0 +1,14 @@
+name = "cdevents-demo"
+main = "src/worker.ts"
+# compatibility_flags = ["python_workers"]
+compatibility_date = "2024-04-01"
+
+[vars]
+MESSAGE = "This is an environment variable"
+
+[[queues.producers]]
+    queue = "scm"
+    binding = "SCM_QUEUE"
+[[kv_namespaces]]
+    id = "f351b7dae16e41a48f1ca92a8c4eae8b" # pragma: allowlist secret
+    binding = "KV_APP"

@@ -1,0 +1,19 @@
+{
+  "$schema": "https://cdevents.dev/0.4.1/schema/test-suite-run-queued-event",
+  "context": {
+    "version": "0.0.0",
+    "id": "5d2c607a-8a91-461e-867f-07cbe77441c4",
+    "source": "manual",
+    "type": "dev.cdevents.testsuiterun.queued.0.2.0"
+  },
+  "subject": {
+    "id": "manual",
+    "type": "testSuiteRun",
+    "content": {
+      "environment": {
+       "id": "5d2c607a-8a91-461e-867f-07cbe77441c4" ,
+       "source": "manual"
+      }
+    }
+  }
+}
