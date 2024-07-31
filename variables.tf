@@ -10,3 +10,16 @@ variable "event_types" {
     error_message = "Queue name must be lower-case with numbers and dash only."
   }
 }
+
+variable "deploy_zone" {
+  type        = string
+  default     = "brucellino.dev"
+  description = "The zone we will be deploying resources and pages into."
+}
+
+variable "webhook_secret" {
+  type        = string
+  sensitive   = true
+  default     = "secret"
+  description = "Secret used to sign webhook deliveries"
+}

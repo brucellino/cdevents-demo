@@ -10,6 +10,20 @@ resource "cloudflare_workers_kv_namespace" "app" {
   title      = "cd-app"
 }
 
+resource "cloudflare_workers_kv" "webhook_secret" {
+  account_id   = data.cloudflare_accounts.mine.accounts[0].id
+  key          = "webhook_secret"
+  namespace_id = cloudflare_workers_kv_namespace.app.id
+  value        = var.webhook_secret
+}
+
+resource "cloudflare_workers_kv" "cd_event_types" {
+  account_id   = data.cloudflare_accounts.mine.accounts[0].id
+  key          = "event_types"
+  namespace_id = cloudflare_workers_kv_namespace.app.id
+  value        = jsonencode(var.event_types)
+}
+
 # # Create worker
 # Python workers are not ready yet
 # resource "cloudflare_worker_script" "app" {
@@ -30,3 +44,13 @@ resource "cloudflare_queue" "cd" {
   account_id = data.cloudflare_accounts.mine.accounts[0].id
   name       = each.value
 }
+
+
+data "cloudflare_zones" "deploy" {
+  filter {
+    name = var.deploy_zone
+  }
+}
+
+
+#  Add the worker domain so that we can subscribe and push to queues
