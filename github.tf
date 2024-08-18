@@ -16,7 +16,7 @@ resource "github_repository_webhook" "cdevents" {
   repository = each.value
 
   configuration {
-    url          = "https://cdevents.brucellino.dev"
+    url          = "https://github.cdevents.${var.deploy_zone}"
     content_type = "json"
     secret       = var.webhook_secret
     insecure_ssl = false
