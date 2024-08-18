@@ -2,7 +2,7 @@
 variable "event_types" {
   type        = list(string)
   description = "List of types of events. See https://cdevents.dev/docs/"
-  default     = ["core", "scm", "ci", "test", "cd", "ops", "ticket"]
+  default     = ["cdevents-core", "cdevents-scm", "cdevents-ci", "cdevents-test", "cdevents-cd", "cdevents-ops", "cdevents-ticket"]
 
   validation {
     # must match ^[a-z0-9]([a-z0-9-]{0,61}[a-z0-9])?$
@@ -22,4 +22,10 @@ variable "webhook_secret" {
   sensitive   = true
   default     = "secret"
   description = "Secret used to sign webhook deliveries"
+}
+
+variable "github_events" {
+  type        = list(string)
+  description = "List of Github events we will be listening to for."
+  default     = ["check_run", "issue_comment", "issues", "label", "pull_request", "pull_request_review", "push", "registry_package", "release", "workflow_job", "workflow_run"]
 }
