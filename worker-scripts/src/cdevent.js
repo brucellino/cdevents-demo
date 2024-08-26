@@ -3,21 +3,9 @@
 //     this.event = Object();
 //   }
 // }
+
 export default {
   async fetch(request, env) {
-    const githubTriggerEvents = [
-      "check_run",
-      "issue_comment",
-      "issues",
-      "label",
-      "pull_request",
-      "pull_request_review",
-      "push",
-      "registry_package",
-      "release",
-      "workflow_job",
-      "workflow_run",
-    ];
     let encoder = new TextEncoder();
     function hexToBytes(hex) {
       // hexToBytes is a function which takes a hex value and converts it to bytes
@@ -36,6 +24,53 @@ export default {
       }
       return bytes;
     }
+
+    function createChangeEvent(payload, headers) {
+      // initialize the return object
+      let msg = {
+        context: {},
+        subject: {},
+      };
+      let timestamp = new Date(payload["pull_request"]["updated_at"]).getTime();
+      let context = {};
+      let subject = {};
+      context.version = "0.4.1";
+      context.id = headers["x-github-delivery"];
+      context.chainId = "";
+      context.source = "github/" + payload["repository"]["full-name"];
+      context.type = "dev.cdevents.created.0.3.0";
+      context.timestamp = timestamp;
+      context.schemaUri = "https://raw.githubusercontent.com/cdevents/spec/main/schemas/changecreated.json";
+      context.links = [];
+
+
+      subject.id = headers["x-github-delivery"];
+      subject.source = "github/" + payload["repository"]["full-name"];
+      subject.type = "change";
+      subject.content = {
+        description: payload["pull_request"]["title"],
+        repository: {
+          id: payload["repository"]["full_name"],
+          source: "https://github.com/",
+        },
+      };
+      msg['context'] = context;
+      msg['subject'] = subject;
+
+      return msg;
+    };
+    function updateChangeEvent(payload, headers) {
+      let msg = {};
+      return msg;
+    };
+    function abandonChangeEvent(payload, headers) {
+      let msg = {};
+      return msg;
+    };
+    function mergeChangeEvent(payload, headers) {
+      let msg = {};
+      return msg;
+    };
 
     async function verifySignature(secret, header, payload) {
       // verifySignature is an async function which verifies the payload with a shared secret used to provide a signature in the header.
@@ -72,82 +107,9 @@ export default {
       return equal;
     }
 
-    function constructCDEvent(type, payload, headers) {
-      // This constructs a SCM event:
-      // https://github.com/cdevents/spec/blob/v0.4.1/source-code-version-control.md
-
-      // create the variable that we will use to return the event.
-      // We do not yet know what kind of event it is specifically
-      // but since it's coming from github, we can assume it's an
-      // scm type of event.
-      let cdEvent = {
-        context: {
-          version: "0.4.1",
-          id: headers["x-github-delivery"],
-          chainId: "",
-          source: `https://github.com/${payload["repo"]["full_name"]}`,
-          type: "",
-          timestamp: "",
-          schemaUri: "",
-          links: [],
-        },
-        subject: {
-          id: "",
-          source: "",
-          type: "",
-          content: {},
-        },
-      };
-      console.log("constructing CD Event from Github Event");
-      // constructCDEvent(event) depending on what kind of event occurred.
-      cdEvent.context.id = headers["x-github-delivery"];
-      cdEvent.context.source = payload["repository"]["full_name"];
-      // cdEvent.context.source = githubEvent.
-      switch (githubEvent) {
-        case "pull_request":
-          // handlePullRequest -> created, reviewed, updated, merged, abandoned
-          cdEvent.context.type = "change";
-
-          break;
-        case "pull_request_review":
-          break;
-        case "push":
-          // check branch
-          console.log("A push event occurred. We may need to transport this.");
-
-        case "registry_package":
-          break;
-        case "release":
-          break;
-        default:
-          console.log("Hit the default somehow. this should not be possible.");
-          break;
-      } // switch on type of event
-      const source = "https://github.com/";
-      const type = "";
-
-      const repository = {
-        name: payload["repository"]["full_name"],
-        type: "repository",
-      };
-      const branch = {};
-      const context = {};
-
-      // const cdEvent = {
-      //   id: headers["x-github-delivery"],
-      //   type: "",
-      //   source: source,
-      //   timestamp: "",
-      //   version: "",
-      // };
-
-      return cdEvent;
-    }
-
     let msg = {};
     let headersObject = Object.fromEntries(request.headers);
     // let headers = JSON.stringify(headersObject, null, 2)
-
     // console.log(`Headers: ${headers}`);
 
     if (request.method === "GET") {
@@ -166,16 +128,60 @@ export default {
 
         if (valid_payload) {
           console.log("Payload verified");
+          var eventType;
           // Check event type
           const githubEvent = headersObject["x-github-event"];
-
-          if (githubTriggerEvents.includes(githubEvent)) {
-            msg = constructCDEvent(payload, headersObject);
+          if (githubEvent == 'pull_request') {
+            const action = payload["action"];
+            /* change event types -
+              - change created
+              - change updated
+              - change reviewed
+              - change merged
+              - change abandoned
+            */
+            switch (action) {
+              case "opened":
+                eventType = "created";
+                msg = createChangeEvent(payload, headersObject);
+                break;
+              case "edited":
+              case "labeled":
+              case "milestoned":
+              case "review_requested":
+              case "synchronize":
+              case "reopened":
+              case "ready_for_review":
+              case "review_request_removed":
+              case "assigned":
+              case "unassigned":
+              case "unlabeled":
+              case "unlocked":
+                eventType = "updated";
+                msg = updateChangeEvent(payload, headersObject);
+              case "closed":
+                // how was this PR closed? Merged or abandoned
+                closeEvent = payload["pull_request"]["merged"];
+                switch (closeEvent) {
+                  case null:
+                  case false:
+                    eventType = "abandoned";
+                    msg = abandonChangeEvent(payload, headersObject);
+                    break;
+                  case true:
+                    eventType = "merged";
+                    msg = mergeChangeEvent(payload, headersObject);
+                    break;
+                }
+              default:
+                // event not identified
+                msg = {};
+                break;
+            }
             // event should trigger a payload
             console.log(`A cdEvent has occurred: ${githubEvent}`);
             // send to queue
             try {
-              // await env.QUEUE.send(payload);
               await env.QUEUE.send(msg);
             } catch (e) {
               console.log(`Failed top send message with ${e}`);

@@ -51,7 +51,7 @@ data "cloudflare_zone" "deploy" {
 
 resource "cloudflare_worker_script" "github" {
   account_id         = data.cloudflare_accounts.mine.accounts[0].id
-  content            = file("${path.module}/worker-scripts/src/worker.js")
+  content            = file("${path.module}/worker-scripts/src/cdevent.js")
   name               = "github-events"
   compatibility_date = "2024-04-01"
   kv_namespace_binding {
