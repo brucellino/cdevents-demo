@@ -25,8 +25,8 @@ These examples show how to use the module in your project, and are also use for 
 
 | Name | Version |
 |------|---------|
-| <a name="provider_cloudflare"></a> [cloudflare](#provider\_cloudflare) | 4.38.0 |
-| <a name="provider_github"></a> [github](#provider\_github) | 6.2.3 |
+| <a name="provider_cloudflare"></a> [cloudflare](#provider\_cloudflare) | 4.42.0 |
+| <a name="provider_github"></a> [github](#provider\_github) | 6.3.0 |
 
 ## Modules
 
@@ -54,7 +54,9 @@ No modules.
 | <a name="input_deploy_zone"></a> [deploy\_zone](#input\_deploy\_zone) | The zone we will be deploying resources and pages into. | `string` | `"brucellino.dev"` | no |
 | <a name="input_event_types"></a> [event\_types](#input\_event\_types) | List of types of events. See https://cdevents.dev/docs/ | `list(string)` | <pre>[<br>  "cdevents-core",<br>  "cdevents-scm",<br>  "cdevents-ci",<br>  "cdevents-test",<br>  "cdevents-cd",<br>  "cdevents-ops",<br>  "cdevents-ticket"<br>]</pre> | no |
 | <a name="input_github_events"></a> [github\_events](#input\_github\_events) | List of Github events we will be listening to for. | `list(string)` | <pre>[<br>  "check_run",<br>  "issue_comment",<br>  "issues",<br>  "label",<br>  "pull_request",<br>  "pull_request_review",<br>  "push",<br>  "registry_package",<br>  "release",<br>  "workflow_job",<br>  "workflow_run"<br>]</pre> | no |
-| <a name="input_webhook_secret"></a> [webhook\_secret](#input\_webhook\_secret) | Secret used to sign webhook deliveries | `string` | `"secret"` | no |
+| <a name="input_jira_secret"></a> [jira\_secret](#input\_jira\_secret) | Secret used to sign Jira webhook deliveries per environment | `map(string)` | <pre>{<br>  "production": "secret",<br>  "staging": "secret"<br>}</pre> | no |
+| <a name="input_jira_secret_staging"></a> [jira\_secret\_staging](#input\_jira\_secret\_staging) | Secret used to sign Jira webhook deliveries for staging events | `string` | `"secret"` | no |
+| <a name="input_webhook_secret"></a> [webhook\_secret](#input\_webhook\_secret) | Secret used to sign github webhook deliveries | `string` | `"secret"` | no |
 
 ## Outputs
 

@@ -40,6 +40,15 @@ provider "github" {
   token = data.vault_kv_secret_v2.github.data["laptop"]
 }
 
+variable "jira_secret" {
+  type = map(string)
+}
+
 module "example" {
-  source = "../../"
+  source      = "../../"
+  deploy_zone = "eoscnode.org"
+  jira_secret = {
+    "staging"    = var.jira_secret["staging"]
+    "production" = var.jira_secret["production"]
+  }
 }

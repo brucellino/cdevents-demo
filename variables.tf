@@ -21,7 +21,23 @@ variable "webhook_secret" {
   type        = string
   sensitive   = true
   default     = "secret"
-  description = "Secret used to sign webhook deliveries"
+  description = "Secret used to sign github webhook deliveries"
+}
+variable "jira_secret_staging" {
+  type        = string
+  sensitive   = true
+  default     = "secret"
+  description = "Secret used to sign Jira webhook deliveries for staging events"
+}
+
+variable "jira_secret" {
+  type      = map(string)
+  sensitive = true
+  default = {
+    staging    = "secret"
+    production = "secret"
+  }
+  description = "Secret used to sign Jira webhook deliveries per environment"
 }
 
 variable "github_events" {
