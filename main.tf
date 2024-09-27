@@ -152,11 +152,36 @@ resource "cloudflare_worker_domain" "jira_prod" {
   zone_id    = data.cloudflare_zone.deploy.id
 }
 
+# The Logpush bucket will contain the logs froim the workers
 resource "cloudflare_r2_bucket" "logpush" {
   account_id = data.cloudflare_accounts.mine.accounts[0].id
   name       = "cdevents-logs"
   location   = "WEUR"
 }
+
+data "cloudflare_api_token_permission_groups" "all" {}
+
+# resource "cloudflare_api_token" "logpush_r2_token" {
+#   name = "logpush_r2_token"
+#   policy {
+#     permission_groups = [
+#       data.cloudflare_api_token_permission_groups.all.account["Workers R2 Storage Write"],
+#     ]
+#     resources = {
+#       "com.cloudflare.api.account.*" = "*"
+#     }
+#   }
+# }
+
+
+# resource "cloudflare_logpush_job" "http_requests" {
+#   enabled          = true
+#   zone_id          = data.cloudflare_zone.deploy.id
+#   name             = "http-requests"
+#   logpull_options  = "fields=ClientIP,ClientRequestHost,ClientRequestMethod,ClientRequestURI,EdgeEndTimestamp,EdgeResponseBytes,EdgeResponseStatus,EdgeStartTimestamp,RayID&timestamps=rfc3339"
+#   destination_conf = "r2://${cloudflare_r2_bucket.logpush.name}/http_requests/date={DATE}?account-id=${data.cloudflare_accounts.mine.accounts[0].id}&access-key-id=${cloudflare_api_token.logpush_r2_token.id}&secret-access-key=${sha256(cloudflare_api_token.logpush_r2_token.value)}"
+#   dataset          = "http_requests"
+# }
 
 # locals {
 #   cf_cidrs = join(" ", data.cloudflare_ip_ranges.cf.ipv4_cidr_blocks)
@@ -207,6 +232,9 @@ resource "cloudflare_workers_script" "invoke-test" {
     binding = "QUEUE"
     queue   = cloudflare_queue.cd["cdevents-ticket"].name
   }
+  logpush            = true
+  compatibility_date = "2024-09-26"
+
   # metadata = {
   #   main_module        = true
   #   placement_mode     = "smart"

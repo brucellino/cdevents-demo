@@ -32,7 +32,7 @@ data "vault_kv_secret_v2" "github" {
 }
 
 provider "cloudflare" {
-  api_token = data.vault_kv_secret_v2.cloudflare_token.data["token"]
+  api_token = data.vault_kv_secret_v2.cloudflare_token.data["r2_token"]
 }
 
 provider "github" {
