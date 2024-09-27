@@ -185,12 +185,6 @@ resource "cloudflare_r2_bucket" "logpush" {
 #   }
 # }
 
-# moved {
-#   from = cloudflare_worker_script.test
-#   to   = cloudflare_workers_script.test
-# }
-
-
 # Start-test is the worker which sends the payload directly to the API exposing
 # robot framework.
 # The Cloudflare tunnel exposes this API on the url start-test.eoscnode.org
@@ -201,8 +195,7 @@ resource "cloudflare_r2_bucket" "logpush" {
 # Affected Services (set(string))
 # These will be passed as tag filters to the robot API.
 
-resource "cloudflare_worker_script" "test" {
-  depends_on = [cloudflare_queue.cd["cdevents-ticket"]]
+resource "cloudflare_workers_script" "invoke-test" {
   account_id = data.cloudflare_accounts.mine.accounts[0].id
   content    = file("${path.module}/worker-scripts/src/invoke-test.js")
   name       = "invoke-test"

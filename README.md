@@ -44,10 +44,10 @@ No modules.
 | [cloudflare_worker_script.github](https://registry.terraform.io/providers/cloudflare/cloudflare/latest/docs/resources/worker_script) | resource |
 | [cloudflare_worker_script.jira_prod](https://registry.terraform.io/providers/cloudflare/cloudflare/latest/docs/resources/worker_script) | resource |
 | [cloudflare_worker_script.jira_stg](https://registry.terraform.io/providers/cloudflare/cloudflare/latest/docs/resources/worker_script) | resource |
-| [cloudflare_worker_script.test](https://registry.terraform.io/providers/cloudflare/cloudflare/latest/docs/resources/worker_script) | resource |
 | [cloudflare_workers_kv.cd_event_types](https://registry.terraform.io/providers/cloudflare/cloudflare/latest/docs/resources/workers_kv) | resource |
 | [cloudflare_workers_kv.webhook_secret](https://registry.terraform.io/providers/cloudflare/cloudflare/latest/docs/resources/workers_kv) | resource |
 | [cloudflare_workers_kv_namespace.app](https://registry.terraform.io/providers/cloudflare/cloudflare/latest/docs/resources/workers_kv_namespace) | resource |
+| [cloudflare_workers_script.invoke-test](https://registry.terraform.io/providers/cloudflare/cloudflare/latest/docs/resources/workers_script) | resource |
 | [github_repository_webhook.cdevents](https://registry.terraform.io/providers/integrations/github/latest/docs/resources/repository_webhook) | resource |
 | [cloudflare_accounts.mine](https://registry.terraform.io/providers/cloudflare/cloudflare/latest/docs/data-sources/accounts) | data source |
 | [cloudflare_zone.deploy](https://registry.terraform.io/providers/cloudflare/cloudflare/latest/docs/data-sources/zone) | data source |
