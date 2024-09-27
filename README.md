@@ -36,6 +36,7 @@ No modules.
 
 | Name | Type |
 |------|------|
+| [cloudflare_api_token.logpush_r2_token](https://registry.terraform.io/providers/cloudflare/cloudflare/latest/docs/resources/api_token) | resource |
 | [cloudflare_queue.cd](https://registry.terraform.io/providers/cloudflare/cloudflare/latest/docs/resources/queue) | resource |
 | [cloudflare_r2_bucket.logpush](https://registry.terraform.io/providers/cloudflare/cloudflare/latest/docs/resources/r2_bucket) | resource |
 | [cloudflare_worker_domain.github](https://registry.terraform.io/providers/cloudflare/cloudflare/latest/docs/resources/worker_domain) | resource |
