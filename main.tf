@@ -67,7 +67,10 @@ data "cloudflare_zone" "deploy" {
 
 # Github worker deals with events from github.
 # v4
-resource "cloudflare_worker_script" "github" {
+resource "cloudflare_workers_script" "github" {
+  lifecycle {
+    create_before_destroy = false
+  }
   account_id = data.cloudflare_accounts.mine.accounts[0].id
   content    = file("${path.module}/worker-scripts/src/cdevent.js")
   name       = "github-events"
@@ -84,7 +87,11 @@ resource "cloudflare_worker_script" "github" {
     binding = "QUEUE"
     queue   = cloudflare_queue.cd["cdevents-scm"].name
   }
-  module = true
+  module  = true
+  logpush = true
+  placement {
+    mode = "smart"
+  }
 
   # metadata = {
   #   logpush            = true
@@ -101,21 +108,21 @@ resource "cloudflare_worker_script" "github" {
 
 # Add the worker domain so that we can subscribe and push to queues
 # v4
-resource "cloudflare_worker_domain" "github" {
+resource "cloudflare_workers_domain" "github" {
   account_id = data.cloudflare_accounts.mine.accounts[0].id
   hostname   = "github.cdevents.${var.deploy_zone}"
-  service    = cloudflare_worker_script.github.name
+  service    = cloudflare_workers_script.github.name
   zone_id    = data.cloudflare_zone.deploy.id
 }
 
 
 # The Jira staging worker receives webhook events from Jira for the staging environment
 # v4
-resource "cloudflare_worker_script" "jira_stg" {
+resource "cloudflare_workers_script" "jira_stg" {
   account_id         = data.cloudflare_accounts.mine.accounts[0].id
   content            = file("${path.module}/worker-scripts/src/jira.js")
   name               = "jira-events-staging"
-  compatibility_date = "2024-04-01"
+  compatibility_date = "2024-03-18"
 
   kv_namespace_binding {
     name         = "KV"
@@ -130,16 +137,16 @@ resource "cloudflare_worker_script" "jira_stg" {
     binding = "QUEUE"
     queue   = cloudflare_queue.cd["cdevents-ticket"].name
   }
-  module = true
-
+  module  = true
+  logpush = true
 }
 
 # The Jira prod worker receives webhook events from Jira for the production environment.
-resource "cloudflare_worker_script" "jira_prod" {
+resource "cloudflare_workers_script" "jira_prod" {
   account_id         = data.cloudflare_accounts.mine.accounts[0].id
   content            = file("${path.module}/worker-scripts/src/jira.js")
   name               = "jira-events-prod"
-  compatibility_date = "2024-04-01"
+  compatibility_date = "2024-03-18"
 
   kv_namespace_binding {
     name         = "KV"
@@ -154,23 +161,24 @@ resource "cloudflare_worker_script" "jira_prod" {
     binding = "QUEUE"
     queue   = cloudflare_queue.cd["cdevents-ticket"].name
   }
-  module = true
+  module  = true
+  logpush = true
 }
 
 
 # We bind the jira staging worker to a specific domain - jira-staging.cdevents.tld
-resource "cloudflare_worker_domain" "jira_stg" {
+resource "cloudflare_workers_domain" "jira_stg" {
   account_id = data.cloudflare_accounts.mine.accounts[0].id
   hostname   = "jira-staging.cdevents.${var.deploy_zone}"
-  service    = cloudflare_worker_script.jira_stg.name
+  service    = cloudflare_workers_script.jira_stg.name
   zone_id    = data.cloudflare_zone.deploy.id
 }
 
 # We bind the jira prod worker to a specific domain - jira-prod.cdevents.tld
-resource "cloudflare_worker_domain" "jira_prod" {
+resource "cloudflare_workers_domain" "jira_prod" {
   account_id = data.cloudflare_accounts.mine.accounts[0].id
   hostname   = "jira-prod.cdevents.${var.deploy_zone}"
-  service    = cloudflare_worker_script.jira_prod.name
+  service    = cloudflare_workers_script.jira_prod.name
   zone_id    = data.cloudflare_zone.deploy.id
 }
 
@@ -203,6 +211,12 @@ resource "cloudflare_api_token" "logpush_r2_token" {
 #   logpull_options  = "fields=ClientIP,ClientRequestHost,ClientRequestMethod,ClientRequestURI,DispatchNamespace,EdgeEndTimestamp,EdgeResponseBytes,EdgeResponseStatus,Entrypoint,Event,EventTimestampMs,EventType,EdgeStartTimestamp,Logs,Outcome,RayID&timestamps=rfc3339,ScriptName"
 #   destination_conf = "r2://${cloudflare_r2_bucket.logpush.name}/http-requests/date={DATE}?account-id=${data.cloudflare_accounts.mine.accounts[0].id}&access-key-id=${cloudflare_api_token.logpush_r2_token.id}&secret-access-key=${sha256(cloudflare_api_token.logpush_r2_token.value)}"
 #   dataset          = "workers_trace_events"
+#   output_options {
+#     cve20214428      = false
+#     field_names      = ["DispatchNamespace", "Entrypoint", "Event", "EventTimestampMs", "EventType", "Exceptions", "Logs", "Outcome", "ScriptName", "ScriptTags", "ScriptVersion"]
+#     timestamp_format = "rfc3339"
+#     sample_rate      = 0
+#   }
 # }
 
 # locals {
@@ -255,7 +269,7 @@ resource "cloudflare_workers_script" "invoke-test" {
     queue   = cloudflare_queue.cd["cdevents-ticket"].name
   }
   logpush            = true
-  compatibility_date = "2024-09-26"
+  compatibility_date = "2024-03-18"
 
   # metadata = {
   #   main_module        = true
