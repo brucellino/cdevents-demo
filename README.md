@@ -18,7 +18,7 @@ These examples show how to use the module in your project, and are also use for 
 | Name | Version |
 |------|---------|
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >1.8.0 |
-| <a name="requirement_cloudflare"></a> [cloudflare](#requirement\_cloudflare) | ~> 4 |
+| <a name="requirement_cloudflare"></a> [cloudflare](#requirement\_cloudflare) | 4.42.0 |
 | <a name="requirement_github"></a> [github](#requirement\_github) | ~> 6.0 |
 
 ## Providers
@@ -36,24 +36,24 @@ No modules.
 
 | Name | Type |
 |------|------|
-| [cloudflare_api_token.logpush_r2_token](https://registry.terraform.io/providers/cloudflare/cloudflare/latest/docs/resources/api_token) | resource |
-| [cloudflare_queue.cd](https://registry.terraform.io/providers/cloudflare/cloudflare/latest/docs/resources/queue) | resource |
-| [cloudflare_r2_bucket.logpush](https://registry.terraform.io/providers/cloudflare/cloudflare/latest/docs/resources/r2_bucket) | resource |
-| [cloudflare_worker_domain.github](https://registry.terraform.io/providers/cloudflare/cloudflare/latest/docs/resources/worker_domain) | resource |
-| [cloudflare_worker_domain.jira_prod](https://registry.terraform.io/providers/cloudflare/cloudflare/latest/docs/resources/worker_domain) | resource |
-| [cloudflare_worker_domain.jira_stg](https://registry.terraform.io/providers/cloudflare/cloudflare/latest/docs/resources/worker_domain) | resource |
-| [cloudflare_worker_script.github](https://registry.terraform.io/providers/cloudflare/cloudflare/latest/docs/resources/worker_script) | resource |
-| [cloudflare_worker_script.jira_prod](https://registry.terraform.io/providers/cloudflare/cloudflare/latest/docs/resources/worker_script) | resource |
-| [cloudflare_worker_script.jira_stg](https://registry.terraform.io/providers/cloudflare/cloudflare/latest/docs/resources/worker_script) | resource |
-| [cloudflare_workers_kv.cd_event_types](https://registry.terraform.io/providers/cloudflare/cloudflare/latest/docs/resources/workers_kv) | resource |
-| [cloudflare_workers_kv.services](https://registry.terraform.io/providers/cloudflare/cloudflare/latest/docs/resources/workers_kv) | resource |
-| [cloudflare_workers_kv.webhook_secret](https://registry.terraform.io/providers/cloudflare/cloudflare/latest/docs/resources/workers_kv) | resource |
-| [cloudflare_workers_kv_namespace.app](https://registry.terraform.io/providers/cloudflare/cloudflare/latest/docs/resources/workers_kv_namespace) | resource |
-| [cloudflare_workers_script.invoke-test](https://registry.terraform.io/providers/cloudflare/cloudflare/latest/docs/resources/workers_script) | resource |
+| [cloudflare_api_token.logpush_r2_token](https://registry.terraform.io/providers/cloudflare/cloudflare/4.42.0/docs/resources/api_token) | resource |
+| [cloudflare_queue.cd](https://registry.terraform.io/providers/cloudflare/cloudflare/4.42.0/docs/resources/queue) | resource |
+| [cloudflare_r2_bucket.logpush](https://registry.terraform.io/providers/cloudflare/cloudflare/4.42.0/docs/resources/r2_bucket) | resource |
+| [cloudflare_worker_domain.github](https://registry.terraform.io/providers/cloudflare/cloudflare/4.42.0/docs/resources/worker_domain) | resource |
+| [cloudflare_worker_domain.jira_prod](https://registry.terraform.io/providers/cloudflare/cloudflare/4.42.0/docs/resources/worker_domain) | resource |
+| [cloudflare_worker_domain.jira_stg](https://registry.terraform.io/providers/cloudflare/cloudflare/4.42.0/docs/resources/worker_domain) | resource |
+| [cloudflare_worker_script.github](https://registry.terraform.io/providers/cloudflare/cloudflare/4.42.0/docs/resources/worker_script) | resource |
+| [cloudflare_worker_script.jira_prod](https://registry.terraform.io/providers/cloudflare/cloudflare/4.42.0/docs/resources/worker_script) | resource |
+| [cloudflare_worker_script.jira_stg](https://registry.terraform.io/providers/cloudflare/cloudflare/4.42.0/docs/resources/worker_script) | resource |
+| [cloudflare_workers_kv.cd_event_types](https://registry.terraform.io/providers/cloudflare/cloudflare/4.42.0/docs/resources/workers_kv) | resource |
+| [cloudflare_workers_kv.services](https://registry.terraform.io/providers/cloudflare/cloudflare/4.42.0/docs/resources/workers_kv) | resource |
+| [cloudflare_workers_kv.webhook_secret](https://registry.terraform.io/providers/cloudflare/cloudflare/4.42.0/docs/resources/workers_kv) | resource |
+| [cloudflare_workers_kv_namespace.app](https://registry.terraform.io/providers/cloudflare/cloudflare/4.42.0/docs/resources/workers_kv_namespace) | resource |
+| [cloudflare_workers_script.invoke-test](https://registry.terraform.io/providers/cloudflare/cloudflare/4.42.0/docs/resources/workers_script) | resource |
 | [github_repository_webhook.cdevents](https://registry.terraform.io/providers/integrations/github/latest/docs/resources/repository_webhook) | resource |
-| [cloudflare_accounts.mine](https://registry.terraform.io/providers/cloudflare/cloudflare/latest/docs/data-sources/accounts) | data source |
-| [cloudflare_api_token_permission_groups.all](https://registry.terraform.io/providers/cloudflare/cloudflare/latest/docs/data-sources/api_token_permission_groups) | data source |
-| [cloudflare_zone.deploy](https://registry.terraform.io/providers/cloudflare/cloudflare/latest/docs/data-sources/zone) | data source |
+| [cloudflare_accounts.mine](https://registry.terraform.io/providers/cloudflare/cloudflare/4.42.0/docs/data-sources/accounts) | data source |
+| [cloudflare_api_token_permission_groups.all](https://registry.terraform.io/providers/cloudflare/cloudflare/4.42.0/docs/data-sources/api_token_permission_groups) | data source |
+| [cloudflare_zone.deploy](https://registry.terraform.io/providers/cloudflare/cloudflare/4.42.0/docs/data-sources/zone) | data source |
 | [github_repositories.integrated](https://registry.terraform.io/providers/integrations/github/latest/docs/data-sources/repositories) | data source |
 
 ## Inputs
