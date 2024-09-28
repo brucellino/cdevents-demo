@@ -7,7 +7,7 @@ terraform {
     }
     cloudflare = {
       source  = "cloudflare/cloudflare"
-      version = "~> 4"
+      version = "4.42.0"
     }
     github = {
       source  = "integrations/github"
@@ -40,6 +40,20 @@ provider "github" {
   token = data.vault_kv_secret_v2.github.data["laptop"]
 }
 
+variable "jira_secret" {
+  type = map(string)
+}
+
+variable "services" {
+  type = set(string)
+}
+
 module "example" {
-  source = "../../"
+  source      = "../../"
+  deploy_zone = "eoscnode.org"
+  jira_secret = {
+    "staging"    = var.jira_secret["staging"]
+    "production" = var.jira_secret["production"]
+  }
+  services = ["Lot 1 Front Office"]
 }

@@ -21,11 +21,37 @@ variable "webhook_secret" {
   type        = string
   sensitive   = true
   default     = "secret"
-  description = "Secret used to sign webhook deliveries"
+  description = "Secret used to sign github webhook deliveries"
+}
+variable "jira_secret_staging" {
+  type        = string
+  sensitive   = true
+  default     = "secret"
+  description = "Secret used to sign Jira webhook deliveries for staging events"
+}
+
+variable "jira_secret" {
+  type      = map(string)
+  sensitive = true
+  default = {
+    staging    = "secret"
+    production = "secret"
+  }
+  description = "Secret used to sign Jira webhook deliveries per environment"
 }
 
 variable "github_events" {
   type        = list(string)
   description = "List of Github events we will be listening to for."
   default     = ["check_run", "issue_comment", "issues", "label", "pull_request", "pull_request_review", "push", "registry_package", "release", "workflow_job", "workflow_run"]
+}
+
+variable "services" {
+  # This should not be a variable, but should be read from the configuration database somewhere.
+  # There is not a 1-1 mapping between what is in Jira and what is in the CMDB,
+  # so we have to declare services into being here.
+  type        = set(string)
+  description = "Set of service names as they are defined in the ticketing system and CMDB"
+  sensitive   = false
+  default     = ["Lot 0 - test service"]
 }

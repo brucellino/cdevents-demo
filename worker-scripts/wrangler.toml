@@ -1,14 +1,11 @@
-name = "cdevents-demo"
-main = "src/worker.ts"
+name = "github-events"
+main = "src/worker.js"
 # compatibility_flags = ["python_workers"]
 compatibility_date = "2024-04-01"
 
-[vars]
-MESSAGE = "This is an environment variable"
-
 [[queues.producers]]
-    queue = "scm"
+    queue = "cdevents-scm"
     binding = "SCM_QUEUE"
 [[kv_namespaces]]
-    id = "f351b7dae16e41a48f1ca92a8c4eae8b" # pragma: allowlist secret
+    id = "8467ca13e24c4834a445692ba105f101" # pragma: allowlist secret
     binding = "KV_APP"
