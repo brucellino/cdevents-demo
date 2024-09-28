@@ -46,6 +46,7 @@ No modules.
 | [cloudflare_worker_script.jira_prod](https://registry.terraform.io/providers/cloudflare/cloudflare/latest/docs/resources/worker_script) | resource |
 | [cloudflare_worker_script.jira_stg](https://registry.terraform.io/providers/cloudflare/cloudflare/latest/docs/resources/worker_script) | resource |
 | [cloudflare_workers_kv.cd_event_types](https://registry.terraform.io/providers/cloudflare/cloudflare/latest/docs/resources/workers_kv) | resource |
+| [cloudflare_workers_kv.services](https://registry.terraform.io/providers/cloudflare/cloudflare/latest/docs/resources/workers_kv) | resource |
 | [cloudflare_workers_kv.webhook_secret](https://registry.terraform.io/providers/cloudflare/cloudflare/latest/docs/resources/workers_kv) | resource |
 | [cloudflare_workers_kv_namespace.app](https://registry.terraform.io/providers/cloudflare/cloudflare/latest/docs/resources/workers_kv_namespace) | resource |
 | [cloudflare_workers_script.invoke-test](https://registry.terraform.io/providers/cloudflare/cloudflare/latest/docs/resources/workers_script) | resource |
@@ -64,6 +65,7 @@ No modules.
 | <a name="input_github_events"></a> [github\_events](#input\_github\_events) | List of Github events we will be listening to for. | `list(string)` | <pre>[<br>  "check_run",<br>  "issue_comment",<br>  "issues",<br>  "label",<br>  "pull_request",<br>  "pull_request_review",<br>  "push",<br>  "registry_package",<br>  "release",<br>  "workflow_job",<br>  "workflow_run"<br>]</pre> | no |
 | <a name="input_jira_secret"></a> [jira\_secret](#input\_jira\_secret) | Secret used to sign Jira webhook deliveries per environment | `map(string)` | <pre>{<br>  "production": "secret",<br>  "staging": "secret"<br>}</pre> | no |
 | <a name="input_jira_secret_staging"></a> [jira\_secret\_staging](#input\_jira\_secret\_staging) | Secret used to sign Jira webhook deliveries for staging events | `string` | `"secret"` | no |
+| <a name="input_services"></a> [services](#input\_services) | Set of service names as they are defined in the ticketing system and CMDB | `set(string)` | <pre>[<br>  "Lot 0 - test service"<br>]</pre> | no |
 | <a name="input_webhook_secret"></a> [webhook\_secret](#input\_webhook\_secret) | Secret used to sign github webhook deliveries | `string` | `"secret"` | no |
 
 ## Outputs

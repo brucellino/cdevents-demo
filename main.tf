@@ -1,6 +1,7 @@
 # Main definition
 
 # Get Cloudflare account
+# v4
 data "cloudflare_accounts" "mine" {
   name = "brucellino"
 }
@@ -8,11 +9,14 @@ data "cloudflare_accounts" "mine" {
 # data "cloudflare_ip_ranges" "cf" {}
 
 # Create kv namespace
+# v4
 resource "cloudflare_workers_kv_namespace" "app" {
   account_id = data.cloudflare_accounts.mine.accounts[0].id
   title      = "cd-app"
 }
 
+
+# v4
 resource "cloudflare_workers_kv" "webhook_secret" {
   account_id   = data.cloudflare_accounts.mine.accounts[0].id
   key          = "webhook_secret"
@@ -20,11 +24,19 @@ resource "cloudflare_workers_kv" "webhook_secret" {
   value        = var.webhook_secret
 }
 
+# v4
 resource "cloudflare_workers_kv" "cd_event_types" {
   account_id   = data.cloudflare_accounts.mine.accounts[0].id
   key          = "event_types"
   namespace_id = cloudflare_workers_kv_namespace.app.id
   value        = jsonencode(var.event_types)
+}
+
+resource "cloudflare_workers_kv" "services" {
+  account_id   = data.cloudflare_accounts.mine.accounts[0].id
+  key          = "service_names"
+  namespace_id = cloudflare_workers_kv_namespace.app.id
+  value        = jsonencode(var.services)
 }
 
 # Create worker
@@ -42,18 +54,19 @@ resource "cloudflare_workers_kv" "cd_event_types" {
 # }
 
 # Create the queues
+# v4
 resource "cloudflare_queue" "cd" {
   for_each   = toset(var.event_types)
   account_id = data.cloudflare_accounts.mine.accounts[0].id
   name       = each.value
-
 }
-
 
 data "cloudflare_zone" "deploy" {
   name = var.deploy_zone
 }
 
+# Github worker deals with events from github.
+# v4
 resource "cloudflare_worker_script" "github" {
   account_id = data.cloudflare_accounts.mine.accounts[0].id
   content    = file("${path.module}/worker-scripts/src/cdevent.js")
@@ -85,7 +98,9 @@ resource "cloudflare_worker_script" "github" {
   # }
 }
 
+
 # Add the worker domain so that we can subscribe and push to queues
+# v4
 resource "cloudflare_worker_domain" "github" {
   account_id = data.cloudflare_accounts.mine.accounts[0].id
   hostname   = "github.cdevents.${var.deploy_zone}"
@@ -93,6 +108,9 @@ resource "cloudflare_worker_domain" "github" {
   zone_id    = data.cloudflare_zone.deploy.id
 }
 
+
+# The Jira staging worker receives webhook events from Jira for the staging environment
+# v4
 resource "cloudflare_worker_script" "jira_stg" {
   account_id         = data.cloudflare_accounts.mine.accounts[0].id
   content            = file("${path.module}/worker-scripts/src/jira.js")
@@ -116,6 +134,7 @@ resource "cloudflare_worker_script" "jira_stg" {
 
 }
 
+# The Jira prod worker receives webhook events from Jira for the production environment.
 resource "cloudflare_worker_script" "jira_prod" {
   account_id         = data.cloudflare_accounts.mine.accounts[0].id
   content            = file("${path.module}/worker-scripts/src/jira.js")
@@ -138,6 +157,8 @@ resource "cloudflare_worker_script" "jira_prod" {
   module = true
 }
 
+
+# We bind the jira staging worker to a specific domain - jira-staging.cdevents.tld
 resource "cloudflare_worker_domain" "jira_stg" {
   account_id = data.cloudflare_accounts.mine.accounts[0].id
   hostname   = "jira-staging.cdevents.${var.deploy_zone}"
@@ -145,6 +166,7 @@ resource "cloudflare_worker_domain" "jira_stg" {
   zone_id    = data.cloudflare_zone.deploy.id
 }
 
+# We bind the jira prod worker to a specific domain - jira-prod.cdevents.tld
 resource "cloudflare_worker_domain" "jira_prod" {
   account_id = data.cloudflare_accounts.mine.accounts[0].id
   hostname   = "jira-prod.cdevents.${var.deploy_zone}"
@@ -176,11 +198,11 @@ resource "cloudflare_api_token" "logpush_r2_token" {
 
 # resource "cloudflare_logpush_job" "http_requests" {
 #   enabled          = true
-#   zone_id          = data.cloudflare_zone.deploy.id
-#   name             = "http-requests"
-#   logpull_options  = "fields=ClientIP,ClientRequestHost,ClientRequestMethod,ClientRequestURI,EdgeEndTimestamp,EdgeResponseBytes,EdgeResponseStatus,EdgeStartTimestamp,RayID&timestamps=rfc3339"
-#   destination_conf = "r2://${cloudflare_r2_bucket.logpush.name}/http_requests/date={DATE}?account-id=${data.cloudflare_accounts.mine.accounts[0].id}&access-key-id=${cloudflare_api_token.logpush_r2_token.id}&secret-access-key=${sha256(cloudflare_api_token.logpush_r2_token.value)}"
-#   dataset          = "http_requests"
+#   account_id       = data.cloudflare_accounts.mine.accounts[0].id
+#   name             = "cdevents-logs"
+#   logpull_options  = "fields=ClientIP,ClientRequestHost,ClientRequestMethod,ClientRequestURI,DispatchNamespace,EdgeEndTimestamp,EdgeResponseBytes,EdgeResponseStatus,Entrypoint,Event,EventTimestampMs,EventType,EdgeStartTimestamp,Logs,Outcome,RayID&timestamps=rfc3339,ScriptName"
+#   destination_conf = "r2://${cloudflare_r2_bucket.logpush.name}/http-requests/date={DATE}?account-id=${data.cloudflare_accounts.mine.accounts[0].id}&access-key-id=${cloudflare_api_token.logpush_r2_token.id}&secret-access-key=${sha256(cloudflare_api_token.logpush_r2_token.value)}"
+#   dataset          = "workers_trace_events"
 # }
 
 # locals {

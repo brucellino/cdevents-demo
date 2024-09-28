@@ -7,7 +7,7 @@ terraform {
     }
     cloudflare = {
       source  = "cloudflare/cloudflare"
-      version = "~> 4"
+      version = "4.42.0"
     }
     github = {
       source  = "integrations/github"
@@ -44,6 +44,10 @@ variable "jira_secret" {
   type = map(string)
 }
 
+variable "services" {
+  type = set(string)
+}
+
 module "example" {
   source      = "../../"
   deploy_zone = "eoscnode.org"
@@ -51,4 +55,5 @@ module "example" {
     "staging"    = var.jira_secret["staging"]
     "production" = var.jira_secret["production"]
   }
+  services = ["Lot 1 Front Office"]
 }
