@@ -282,3 +282,9 @@ resource "cloudflare_workers_script" "invoke-test" {
   #   }]
   # }
 }
+
+
+# Test api tunnel
+# Service Token
+# Application
+# Groups
