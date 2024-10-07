@@ -1,0 +1,620 @@
+{
+    "transition": {
+        "workflowId": 11538,
+        "workflowName": "SMS3: Change Workflow",
+        "transitionId": 8,
+        "transitionName": "Test Staging",
+        "from_status": "Deploying to Staging",
+        "to_status": "Testing in Staging",
+        "executionId": "13636517-bf63-4357-ae63-e17f9c2fd68d"
+    },
+    "comment": "",
+    "user": {
+        "self": "https://eu-node.atlassian.net/rest/api/2/user?accountId=5b437fe87975a22beeaea83f",
+        "accountId": "5b437fe87975a22beeaea83f",
+        "avatarUrls": {
+            "48x48": "https://secure.gravatar.com/avatar/7a843e57148832b9c32df287cc977674?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBB-5.png",
+            "24x24": "https://secure.gravatar.com/avatar/7a843e57148832b9c32df287cc977674?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBB-5.png",
+            "16x16": "https://secure.gravatar.com/avatar/7a843e57148832b9c32df287cc977674?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBB-5.png",
+            "32x32": "https://secure.gravatar.com/avatar/7a843e57148832b9c32df287cc977674?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBB-5.png"
+        },
+        "displayName": "Bruce Becker",
+        "active": true,
+        "timeZone": "Europe/Paris",
+        "accountType": "atlassian"
+    },
+    "issue": {
+        "id": "11453",
+        "self": "https://eu-node.atlassian.net/rest/api/2/11453",
+        "key": "SMS3-148",
+        "fields": {
+            "statuscategorychangedate": "2024-08-28T08:10:11.729+0200",
+            "customfield_10072": {
+                "self": "https://eu-node.atlassian.net/rest/api/2/customFieldOption/10088",
+                "value": "Warning",
+                "id": "10088"
+            },
+            "customfield_10074": null,
+            "customfield_10075": {
+                "self": "https://eu-node.atlassian.net/rest/api/2/customFieldOption/10096",
+                "value": "No",
+                "id": "10096"
+            },
+            "customfield_10076": null,
+            "customfield_10077": null,
+            "fixVersions": [],
+            "customfield_10078": null,
+            "customfield_10079": null,
+            "resolution": null,
+            "lastViewed": "2024-08-29T09:57:07.495+0200",
+            "customfield_10060": [
+                {
+                    "self": "https://eu-node.atlassian.net/rest/api/2/customFieldOption/10059",
+                    "value": "Lot 1",
+                    "id": "10059"
+                }
+            ],
+            "customfield_10061": null,
+            "customfield_10062": null,
+            "customfield_10063": null,
+            "customfield_10064": null,
+            "customfield_10065": null,
+            "customfield_10066": null,
+            "customfield_10100": {
+                "self": "https://eu-node.atlassian.net/rest/api/2/customFieldOption/10180",
+                "value": "Lot 1 - User Space",
+                "id": "10180"
+            },
+            "priority": {
+                "self": "https://eu-node.atlassian.net/rest/api/2/priority/3",
+                "iconUrl": "https://eu-node.atlassian.net/images/icons/priorities/medium.svg",
+                "name": "Medium",
+                "id": "3"
+            },
+            "customfield_10067": null,
+            "customfield_10068": {
+                "self": "https://eu-node.atlassian.net/rest/api/2/customFieldOption/10083",
+                "value": "Normal",
+                "id": "10083"
+            },
+            "customfield_10101": [
+                {
+                    "self": "https://eu-node.atlassian.net/rest/api/2/customFieldOption/10223",
+                    "value": "Lot 1 - User Space",
+                    "id": "10223"
+                }
+            ],
+            "customfield_10069": null,
+            "customfield_10102": null,
+            "labels": [],
+            "aggregatetimeoriginalestimate": null,
+            "timeestimate": null,
+            "versions": [],
+            "issuelinks": [],
+            "assignee": {
+                "self": "https://eu-node.atlassian.net/rest/api/2/user?accountId=712020%3Abc224bd9-9c93-4a81-9a02-6024ed79e4f5",
+                "accountId": "712020:bc224bd9-9c93-4a81-9a02-6024ed79e4f5",
+                "avatarUrls": {
+                    "48x48": "https://secure.gravatar.com/avatar/ae497d26a4b76a41a8cebaba264ec547?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FTK-1.png",
+                    "24x24": "https://secure.gravatar.com/avatar/ae497d26a4b76a41a8cebaba264ec547?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FTK-1.png",
+                    "16x16": "https://secure.gravatar.com/avatar/ae497d26a4b76a41a8cebaba264ec547?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FTK-1.png",
+                    "32x32": "https://secure.gravatar.com/avatar/ae497d26a4b76a41a8cebaba264ec547?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FTK-1.png"
+                },
+                "displayName": "Tibor Kalman",
+                "active": true,
+                "timeZone": "Europe/Paris",
+                "accountType": "atlassian"
+            },
+            "status": {
+                "self": "https://eu-node.atlassian.net/rest/api/2/status/10045",
+                "description": "",
+                "iconUrl": "https://eu-node.atlassian.net/",
+                "name": "Testing in Staging",
+                "id": "10045",
+                "statusCategory": {
+                    "self": "https://eu-node.atlassian.net/rest/api/2/statuscategory/4",
+                    "id": 4,
+                    "key": "indeterminate",
+                    "colorName": "yellow",
+                    "name": "In Progress"
+                }
+            },
+            "components": [],
+            "customfield_10050": {
+                "self": "https://eu-node.atlassian.net/rest/api/2/customFieldOption/10051",
+                "value": "Unlikely",
+                "id": "10051"
+            },
+            "customfield_10052": null,
+            "customfield_10053": null,
+            "customfield_10054": {
+                "self": "https://eu-node.atlassian.net/rest/api/2/customFieldOption/10055",
+                "value": "Low",
+                "id": "10055"
+            },
+            "customfield_10055": [],
+            "customfield_10057": null,
+            "aggregatetimeestimate": null,
+            "creator": {
+                "self": "https://eu-node.atlassian.net/rest/api/2/user?accountId=712020%3A7459cc53-da3e-489e-8758-05279ac746e4",
+                "accountId": "712020:7459cc53-da3e-489e-8758-05279ac746e4",
+                "avatarUrls": {
+                    "48x48": "https://secure.gravatar.com/avatar/0d10ba86650b65d98f701c31215b711f?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FLF-2.png",
+                    "24x24": "https://secure.gravatar.com/avatar/0d10ba86650b65d98f701c31215b711f?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FLF-2.png",
+                    "16x16": "https://secure.gravatar.com/avatar/0d10ba86650b65d98f701c31215b711f?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FLF-2.png",
+                    "32x32": "https://secure.gravatar.com/avatar/0d10ba86650b65d98f701c31215b711f?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FLF-2.png"
+                },
+                "displayName": "Levente Farkas",
+                "active": true,
+                "timeZone": "Europe/Paris",
+                "accountType": "atlassian"
+            },
+            "subtasks": [],
+            "customfield_10042": null,
+            "reporter": {
+                "self": "https://eu-node.atlassian.net/rest/api/2/user?accountId=712020%3A7459cc53-da3e-489e-8758-05279ac746e4",
+                "accountId": "712020:7459cc53-da3e-489e-8758-05279ac746e4",
+                "avatarUrls": {
+                    "48x48": "https://secure.gravatar.com/avatar/0d10ba86650b65d98f701c31215b711f?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FLF-2.png",
+                    "24x24": "https://secure.gravatar.com/avatar/0d10ba86650b65d98f701c31215b711f?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FLF-2.png",
+                    "16x16": "https://secure.gravatar.com/avatar/0d10ba86650b65d98f701c31215b711f?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FLF-2.png",
+                    "32x32": "https://secure.gravatar.com/avatar/0d10ba86650b65d98f701c31215b711f?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FLF-2.png"
+                },
+                "displayName": "Levente Farkas",
+                "active": true,
+                "timeZone": "Europe/Paris",
+                "accountType": "atlassian"
+            },
+            "customfield_10043": null,
+            "aggregateprogress": {
+                "progress": 0,
+                "total": 0
+            },
+            "customfield_10046": null,
+            "customfield_10047": null,
+            "customfield_10048": null,
+            "customfield_10039": null,
+            "progress": {
+                "progress": 0,
+                "total": 0
+            },
+            "votes": {
+                "self": "https://eu-node.atlassian.net/rest/api/2/issue/SMS3-148/votes",
+                "votes": 0,
+                "hasVoted": false
+            },
+            "worklog": {
+                "startAt": 0,
+                "maxResults": 20,
+                "total": 0,
+                "worklogs": []
+            },
+            "issuetype": {
+                "self": "https://eu-node.atlassian.net/rest/api/2/issuetype/10026",
+                "id": "10026",
+                "description": "A request for a change affecting the solution described in the Tender or one of the delivered services",
+                "iconUrl": "https://eu-node.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/10304?size=medium",
+                "name": "Change",
+                "subtask": false,
+                "avatarId": 10304,
+                "hierarchyLevel": 0
+            },
+            "timespent": null,
+            "customfield_10030": null,
+            "project": {
+                "self": "https://eu-node.atlassian.net/rest/api/2/project/10010",
+                "id": "10010",
+                "key": "SMS3",
+                "name": "LOT1 Core SMS",
+                "projectTypeKey": "business",
+                "simplified": false,
+                "avatarUrls": {
+                    "48x48": "https://eu-node.atlassian.net/rest/api/2/universal_avatar/view/type/project/avatar/10556",
+                    "24x24": "https://eu-node.atlassian.net/rest/api/2/universal_avatar/view/type/project/avatar/10556?size=small",
+                    "16x16": "https://eu-node.atlassian.net/rest/api/2/universal_avatar/view/type/project/avatar/10556?size=xsmall",
+                    "32x32": "https://eu-node.atlassian.net/rest/api/2/universal_avatar/view/type/project/avatar/10556?size=medium"
+                }
+            },
+            "customfield_10032": null,
+            "aggregatetimespent": null,
+            "customfield_10027": null,
+            "customfield_10028": null,
+            "customfield_10029": null,
+            "resolutiondate": null,
+            "workratio": -1,
+            "watches": {
+                "self": "https://eu-node.atlassian.net/rest/api/2/issue/SMS3-148/watchers",
+                "watchCount": 3,
+                "isWatching": true
+            },
+            "issuerestriction": {
+                "issuerestrictions": {},
+                "shouldDisplay": false
+            },
+            "created": "2024-08-28T08:09:40.441+0200",
+            "customfield_10020": null,
+            "customfield_10021": null,
+            "customfield_10022": null,
+            "customfield_10023": null,
+            "customfield_10024": "2024-08-28T09:38:31.065+0200",
+            "customfield_10025": null,
+            "customfield_10026": null,
+            "customfield_10016": null,
+            "customfield_10017": null,
+            "customfield_10018": {
+                "hasEpicLinkFieldDependency": false,
+                "showField": false,
+                "nonEditableReason": {
+                    "reason": "PLUGIN_LICENSE_ERROR",
+                    "message": "The Parent Link is only available to Jira Premium users."
+                }
+            },
+            "customfield_10019": "0|i0089j:",
+            "updated": "2024-08-29T15:48:07.194+0200",
+            "customfield_10090": null,
+            "customfield_10091": null,
+            "customfield_10092": null,
+            "customfield_10093": null,
+            "customfield_10094": null,
+            "timeoriginalestimate": null,
+            "customfield_10096": null,
+            "description": "Test ticket to validate the ChaRDM change procedure",
+            "customfield_10098": "1.2.88",
+            "customfield_10010": null,
+            "customfield_10099": {
+                "self": "https://eu-node.atlassian.net/rest/api/2/user?accountId=712020%3Abc224bd9-9c93-4a81-9a02-6024ed79e4f5",
+                "accountId": "712020:bc224bd9-9c93-4a81-9a02-6024ed79e4f5",
+                "avatarUrls": {
+                    "48x48": "https://secure.gravatar.com/avatar/ae497d26a4b76a41a8cebaba264ec547?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FTK-1.png",
+                    "24x24": "https://secure.gravatar.com/avatar/ae497d26a4b76a41a8cebaba264ec547?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FTK-1.png",
+                    "16x16": "https://secure.gravatar.com/avatar/ae497d26a4b76a41a8cebaba264ec547?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FTK-1.png",
+                    "32x32": "https://secure.gravatar.com/avatar/ae497d26a4b76a41a8cebaba264ec547?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FTK-1.png"
+                },
+                "displayName": "Tibor Kalman",
+                "active": true,
+                "timeZone": "Europe/Paris",
+                "accountType": "atlassian"
+            },
+            "customfield_10014": null,
+            "customfield_10015": null,
+            "timetracking": {},
+            "security": null,
+            "customfield_10008": null,
+            "customfield_10009": null,
+            "attachment": [],
+            "summary": "test",
+            "customfield_10080": null,
+            "customfield_10081": null,
+            "customfield_10082": null,
+            "customfield_10083": null,
+            "customfield_10084": null,
+            "customfield_10085": null,
+            "customfield_10086": null,
+            "customfield_10087": null,
+            "customfield_10000": "{}",
+            "customfield_10088": null,
+            "customfield_10089": null,
+            "customfield_10001": null,
+            "customfield_10002": [],
+            "customfield_10003": null,
+            "customfield_10004": {
+                "self": "https://eu-node.atlassian.net/rest/api/2/customFieldOption/10003",
+                "value": "Minor / Localized",
+                "id": "10003"
+            },
+            "environment": null,
+            "duedate": null,
+            "comment": {
+                "comments": [
+                    {
+                        "self": "https://eu-node.atlassian.net/rest/api/2/issue/11453/comment/12388",
+                        "id": "12388",
+                        "author": {
+                            "self": "https://eu-node.atlassian.net/rest/api/2/user?accountId=712020%3Abc224bd9-9c93-4a81-9a02-6024ed79e4f5",
+                            "accountId": "712020:bc224bd9-9c93-4a81-9a02-6024ed79e4f5",
+                            "avatarUrls": {
+                                "48x48": "https://secure.gravatar.com/avatar/ae497d26a4b76a41a8cebaba264ec547?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FTK-1.png",
+                                "24x24": "https://secure.gravatar.com/avatar/ae497d26a4b76a41a8cebaba264ec547?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FTK-1.png",
+                                "16x16": "https://secure.gravatar.com/avatar/ae497d26a4b76a41a8cebaba264ec547?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FTK-1.png",
+                                "32x32": "https://secure.gravatar.com/avatar/ae497d26a4b76a41a8cebaba264ec547?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FTK-1.png"
+                            },
+                            "displayName": "Tibor Kalman",
+                            "active": true,
+                            "timeZone": "Europe/Paris",
+                            "accountType": "atlassian"
+                        },
+                        "body": "🔍 Can you clarify?",
+                        "updateAuthor": {
+                            "self": "https://eu-node.atlassian.net/rest/api/2/user?accountId=712020%3Abc224bd9-9c93-4a81-9a02-6024ed79e4f5",
+                            "accountId": "712020:bc224bd9-9c93-4a81-9a02-6024ed79e4f5",
+                            "avatarUrls": {
+                                "48x48": "https://secure.gravatar.com/avatar/ae497d26a4b76a41a8cebaba264ec547?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FTK-1.png",
+                                "24x24": "https://secure.gravatar.com/avatar/ae497d26a4b76a41a8cebaba264ec547?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FTK-1.png",
+                                "16x16": "https://secure.gravatar.com/avatar/ae497d26a4b76a41a8cebaba264ec547?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FTK-1.png",
+                                "32x32": "https://secure.gravatar.com/avatar/ae497d26a4b76a41a8cebaba264ec547?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FTK-1.png"
+                            },
+                            "displayName": "Tibor Kalman",
+                            "active": true,
+                            "timeZone": "Europe/Paris",
+                            "accountType": "atlassian"
+                        },
+                        "created": "2024-08-28T09:38:31.065+0200",
+                        "updated": "2024-08-28T09:38:31.065+0200",
+                        "jsdPublic": true
+                    },
+                    {
+                        "self": "https://eu-node.atlassian.net/rest/api/2/issue/11453/comment/12482",
+                        "id": "12482",
+                        "author": {
+                            "self": "https://eu-node.atlassian.net/rest/api/2/user?accountId=5b437fe87975a22beeaea83f",
+                            "accountId": "5b437fe87975a22beeaea83f",
+                            "emailAddress": "bruce.becker@egi.eu",
+                            "avatarUrls": {
+                                "48x48": "https://secure.gravatar.com/avatar/7a843e57148832b9c32df287cc977674?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBB-5.png",
+                                "24x24": "https://secure.gravatar.com/avatar/7a843e57148832b9c32df287cc977674?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBB-5.png",
+                                "16x16": "https://secure.gravatar.com/avatar/7a843e57148832b9c32df287cc977674?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBB-5.png",
+                                "32x32": "https://secure.gravatar.com/avatar/7a843e57148832b9c32df287cc977674?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBB-5.png"
+                            },
+                            "displayName": "Bruce Becker",
+                            "active": true,
+                            "timeZone": "Europe/Rome",
+                            "accountType": "atlassian"
+                        },
+                        "body": "We are testing the workflow [~accountid:712020:bc224bd9-9c93-4a81-9a02-6024ed79e4f5] standby.",
+                        "updateAuthor": {
+                            "self": "https://eu-node.atlassian.net/rest/api/2/user?accountId=5b437fe87975a22beeaea83f",
+                            "accountId": "5b437fe87975a22beeaea83f",
+                            "emailAddress": "bruce.becker@egi.eu",
+                            "avatarUrls": {
+                                "48x48": "https://secure.gravatar.com/avatar/7a843e57148832b9c32df287cc977674?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBB-5.png",
+                                "24x24": "https://secure.gravatar.com/avatar/7a843e57148832b9c32df287cc977674?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBB-5.png",
+                                "16x16": "https://secure.gravatar.com/avatar/7a843e57148832b9c32df287cc977674?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBB-5.png",
+                                "32x32": "https://secure.gravatar.com/avatar/7a843e57148832b9c32df287cc977674?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBB-5.png"
+                            },
+                            "displayName": "Bruce Becker",
+                            "active": true,
+                            "timeZone": "Europe/Rome",
+                            "accountType": "atlassian"
+                        },
+                        "created": "2024-08-28T13:35:29.119+0200",
+                        "updated": "2024-08-28T13:35:29.119+0200",
+                        "jsdPublic": true
+                    },
+                    {
+                        "self": "https://eu-node.atlassian.net/rest/api/2/issue/11453/comment/12483",
+                        "id": "12483",
+                        "author": {
+                            "self": "https://eu-node.atlassian.net/rest/api/2/user?accountId=5b437fe87975a22beeaea83f",
+                            "accountId": "5b437fe87975a22beeaea83f",
+                            "emailAddress": "bruce.becker@egi.eu",
+                            "avatarUrls": {
+                                "48x48": "https://secure.gravatar.com/avatar/7a843e57148832b9c32df287cc977674?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBB-5.png",
+                                "24x24": "https://secure.gravatar.com/avatar/7a843e57148832b9c32df287cc977674?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBB-5.png",
+                                "16x16": "https://secure.gravatar.com/avatar/7a843e57148832b9c32df287cc977674?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBB-5.png",
+                                "32x32": "https://secure.gravatar.com/avatar/7a843e57148832b9c32df287cc977674?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBB-5.png"
+                            },
+                            "displayName": "Bruce Becker",
+                            "active": true,
+                            "timeZone": "Europe/Rome",
+                            "accountType": "atlassian"
+                        },
+                        "body": "Confirm that payload from webhook is received.",
+                        "updateAuthor": {
+                            "self": "https://eu-node.atlassian.net/rest/api/2/user?accountId=5b437fe87975a22beeaea83f",
+                            "accountId": "5b437fe87975a22beeaea83f",
+                            "emailAddress": "bruce.becker@egi.eu",
+                            "avatarUrls": {
+                                "48x48": "https://secure.gravatar.com/avatar/7a843e57148832b9c32df287cc977674?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBB-5.png",
+                                "24x24": "https://secure.gravatar.com/avatar/7a843e57148832b9c32df287cc977674?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBB-5.png",
+                                "16x16": "https://secure.gravatar.com/avatar/7a843e57148832b9c32df287cc977674?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBB-5.png",
+                                "32x32": "https://secure.gravatar.com/avatar/7a843e57148832b9c32df287cc977674?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBB-5.png"
+                            },
+                            "displayName": "Bruce Becker",
+                            "active": true,
+                            "timeZone": "Europe/Rome",
+                            "accountType": "atlassian"
+                        },
+                        "created": "2024-08-28T13:45:15.659+0200",
+                        "updated": "2024-08-28T13:45:15.659+0200",
+                        "jsdPublic": true
+                    },
+                    {
+                        "self": "https://eu-node.atlassian.net/rest/api/2/issue/11453/comment/12484",
+                        "id": "12484",
+                        "author": {
+                            "self": "https://eu-node.atlassian.net/rest/api/2/user?accountId=5b437fe87975a22beeaea83f",
+                            "accountId": "5b437fe87975a22beeaea83f",
+                            "emailAddress": "bruce.becker@egi.eu",
+                            "avatarUrls": {
+                                "48x48": "https://secure.gravatar.com/avatar/7a843e57148832b9c32df287cc977674?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBB-5.png",
+                                "24x24": "https://secure.gravatar.com/avatar/7a843e57148832b9c32df287cc977674?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBB-5.png",
+                                "16x16": "https://secure.gravatar.com/avatar/7a843e57148832b9c32df287cc977674?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBB-5.png",
+                                "32x32": "https://secure.gravatar.com/avatar/7a843e57148832b9c32df287cc977674?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBB-5.png"
+                            },
+                            "displayName": "Bruce Becker",
+                            "active": true,
+                            "timeZone": "Europe/Rome",
+                            "accountType": "atlassian"
+                        },
+                        "body": "[~accountid:712020:7459cc53-da3e-489e-8758-05279ac746e4] I’m going to abandon this ticket and explore the path out via failed deployment.",
+                        "updateAuthor": {
+                            "self": "https://eu-node.atlassian.net/rest/api/2/user?accountId=5b437fe87975a22beeaea83f",
+                            "accountId": "5b437fe87975a22beeaea83f",
+                            "emailAddress": "bruce.becker@egi.eu",
+                            "avatarUrls": {
+                                "48x48": "https://secure.gravatar.com/avatar/7a843e57148832b9c32df287cc977674?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBB-5.png",
+                                "24x24": "https://secure.gravatar.com/avatar/7a843e57148832b9c32df287cc977674?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBB-5.png",
+                                "16x16": "https://secure.gravatar.com/avatar/7a843e57148832b9c32df287cc977674?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBB-5.png",
+                                "32x32": "https://secure.gravatar.com/avatar/7a843e57148832b9c32df287cc977674?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBB-5.png"
+                            },
+                            "displayName": "Bruce Becker",
+                            "active": true,
+                            "timeZone": "Europe/Rome",
+                            "accountType": "atlassian"
+                        },
+                        "created": "2024-08-28T13:51:26.410+0200",
+                        "updated": "2024-08-28T13:51:26.410+0200",
+                        "jsdPublic": true
+                    },
+                    {
+                        "self": "https://eu-node.atlassian.net/rest/api/2/issue/11453/comment/12493",
+                        "id": "12493",
+                        "author": {
+                            "self": "https://eu-node.atlassian.net/rest/api/2/user?accountId=5b437fe87975a22beeaea83f",
+                            "accountId": "5b437fe87975a22beeaea83f",
+                            "emailAddress": "bruce.becker@egi.eu",
+                            "avatarUrls": {
+                                "48x48": "https://secure.gravatar.com/avatar/7a843e57148832b9c32df287cc977674?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBB-5.png",
+                                "24x24": "https://secure.gravatar.com/avatar/7a843e57148832b9c32df287cc977674?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBB-5.png",
+                                "16x16": "https://secure.gravatar.com/avatar/7a843e57148832b9c32df287cc977674?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBB-5.png",
+                                "32x32": "https://secure.gravatar.com/avatar/7a843e57148832b9c32df287cc977674?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBB-5.png"
+                            },
+                            "displayName": "Bruce Becker",
+                            "active": true,
+                            "timeZone": "Europe/Rome",
+                            "accountType": "atlassian"
+                        },
+                        "body": "payload now put on queue. “failing” the test to request it again.",
+                        "updateAuthor": {
+                            "self": "https://eu-node.atlassian.net/rest/api/2/user?accountId=5b437fe87975a22beeaea83f",
+                            "accountId": "5b437fe87975a22beeaea83f",
+                            "emailAddress": "bruce.becker@egi.eu",
+                            "avatarUrls": {
+                                "48x48": "https://secure.gravatar.com/avatar/7a843e57148832b9c32df287cc977674?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBB-5.png",
+                                "24x24": "https://secure.gravatar.com/avatar/7a843e57148832b9c32df287cc977674?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBB-5.png",
+                                "16x16": "https://secure.gravatar.com/avatar/7a843e57148832b9c32df287cc977674?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBB-5.png",
+                                "32x32": "https://secure.gravatar.com/avatar/7a843e57148832b9c32df287cc977674?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBB-5.png"
+                            },
+                            "displayName": "Bruce Becker",
+                            "active": true,
+                            "timeZone": "Europe/Rome",
+                            "accountType": "atlassian"
+                        },
+                        "created": "2024-08-28T16:49:38.927+0200",
+                        "updated": "2024-08-28T16:49:38.927+0200",
+                        "jsdPublic": true
+                    },
+                    {
+                        "self": "https://eu-node.atlassian.net/rest/api/2/issue/11453/comment/12509",
+                        "id": "12509",
+                        "author": {
+                            "self": "https://eu-node.atlassian.net/rest/api/2/user?accountId=5b437fe87975a22beeaea83f",
+                            "accountId": "5b437fe87975a22beeaea83f",
+                            "emailAddress": "bruce.becker@egi.eu",
+                            "avatarUrls": {
+                                "48x48": "https://secure.gravatar.com/avatar/7a843e57148832b9c32df287cc977674?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBB-5.png",
+                                "24x24": "https://secure.gravatar.com/avatar/7a843e57148832b9c32df287cc977674?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBB-5.png",
+                                "16x16": "https://secure.gravatar.com/avatar/7a843e57148832b9c32df287cc977674?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBB-5.png",
+                                "32x32": "https://secure.gravatar.com/avatar/7a843e57148832b9c32df287cc977674?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBB-5.png"
+                            },
+                            "displayName": "Bruce Becker",
+                            "active": true,
+                            "timeZone": "Europe/Rome",
+                            "accountType": "atlassian"
+                        },
+                        "body": "Implemented the test catcher - going through the deploy → test loop again.",
+                        "updateAuthor": {
+                            "self": "https://eu-node.atlassian.net/rest/api/2/user?accountId=5b437fe87975a22beeaea83f",
+                            "accountId": "5b437fe87975a22beeaea83f",
+                            "emailAddress": "bruce.becker@egi.eu",
+                            "avatarUrls": {
+                                "48x48": "https://secure.gravatar.com/avatar/7a843e57148832b9c32df287cc977674?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBB-5.png",
+                                "24x24": "https://secure.gravatar.com/avatar/7a843e57148832b9c32df287cc977674?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBB-5.png",
+                                "16x16": "https://secure.gravatar.com/avatar/7a843e57148832b9c32df287cc977674?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBB-5.png",
+                                "32x32": "https://secure.gravatar.com/avatar/7a843e57148832b9c32df287cc977674?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBB-5.png"
+                            },
+                            "displayName": "Bruce Becker",
+                            "active": true,
+                            "timeZone": "Europe/Rome",
+                            "accountType": "atlassian"
+                        },
+                        "created": "2024-08-29T15:38:49.956+0200",
+                        "updated": "2024-08-29T15:38:49.956+0200",
+                        "jsdPublic": true
+                    },
+                    {
+                        "self": "https://eu-node.atlassian.net/rest/api/2/issue/11453/comment/12510",
+                        "id": "12510",
+                        "author": {
+                            "self": "https://eu-node.atlassian.net/rest/api/2/user?accountId=5b437fe87975a22beeaea83f",
+                            "accountId": "5b437fe87975a22beeaea83f",
+                            "emailAddress": "bruce.becker@egi.eu",
+                            "avatarUrls": {
+                                "48x48": "https://secure.gravatar.com/avatar/7a843e57148832b9c32df287cc977674?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBB-5.png",
+                                "24x24": "https://secure.gravatar.com/avatar/7a843e57148832b9c32df287cc977674?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBB-5.png",
+                                "16x16": "https://secure.gravatar.com/avatar/7a843e57148832b9c32df287cc977674?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBB-5.png",
+                                "32x32": "https://secure.gravatar.com/avatar/7a843e57148832b9c32df287cc977674?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBB-5.png"
+                            },
+                            "displayName": "Bruce Becker",
+                            "active": true,
+                            "timeZone": "Europe/Rome",
+                            "accountType": "atlassian"
+                        },
+                        "body": "message received, but exception thrown. Going through the deploy → test loop again.",
+                        "updateAuthor": {
+                            "self": "https://eu-node.atlassian.net/rest/api/2/user?accountId=5b437fe87975a22beeaea83f",
+                            "accountId": "5b437fe87975a22beeaea83f",
+                            "emailAddress": "bruce.becker@egi.eu",
+                            "avatarUrls": {
+                                "48x48": "https://secure.gravatar.com/avatar/7a843e57148832b9c32df287cc977674?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBB-5.png",
+                                "24x24": "https://secure.gravatar.com/avatar/7a843e57148832b9c32df287cc977674?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBB-5.png",
+                                "16x16": "https://secure.gravatar.com/avatar/7a843e57148832b9c32df287cc977674?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBB-5.png",
+                                "32x32": "https://secure.gravatar.com/avatar/7a843e57148832b9c32df287cc977674?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBB-5.png"
+                            },
+                            "displayName": "Bruce Becker",
+                            "active": true,
+                            "timeZone": "Europe/Rome",
+                            "accountType": "atlassian"
+                        },
+                        "created": "2024-08-29T15:40:30.101+0200",
+                        "updated": "2024-08-29T15:40:30.101+0200",
+                        "jsdPublic": true
+                    },
+                    {
+                        "self": "https://eu-node.atlassian.net/rest/api/2/issue/11453/comment/12511",
+                        "id": "12511",
+                        "author": {
+                            "self": "https://eu-node.atlassian.net/rest/api/2/user?accountId=5b437fe87975a22beeaea83f",
+                            "accountId": "5b437fe87975a22beeaea83f",
+                            "emailAddress": "bruce.becker@egi.eu",
+                            "avatarUrls": {
+                                "48x48": "https://secure.gravatar.com/avatar/7a843e57148832b9c32df287cc977674?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBB-5.png",
+                                "24x24": "https://secure.gravatar.com/avatar/7a843e57148832b9c32df287cc977674?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBB-5.png",
+                                "16x16": "https://secure.gravatar.com/avatar/7a843e57148832b9c32df287cc977674?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBB-5.png",
+                                "32x32": "https://secure.gravatar.com/avatar/7a843e57148832b9c32df287cc977674?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBB-5.png"
+                            },
+                            "displayName": "Bruce Becker",
+                            "active": true,
+                            "timeZone": "Europe/Rome",
+                            "accountType": "atlassian"
+                        },
+                        "body": "message received, but test receiver was not up properly. Going through deploy → test loop again.",
+                        "updateAuthor": {
+                            "self": "https://eu-node.atlassian.net/rest/api/2/user?accountId=5b437fe87975a22beeaea83f",
+                            "accountId": "5b437fe87975a22beeaea83f",
+                            "emailAddress": "bruce.becker@egi.eu",
+                            "avatarUrls": {
+                                "48x48": "https://secure.gravatar.com/avatar/7a843e57148832b9c32df287cc977674?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBB-5.png",
+                                "24x24": "https://secure.gravatar.com/avatar/7a843e57148832b9c32df287cc977674?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBB-5.png",
+                                "16x16": "https://secure.gravatar.com/avatar/7a843e57148832b9c32df287cc977674?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBB-5.png",
+                                "32x32": "https://secure.gravatar.com/avatar/7a843e57148832b9c32df287cc977674?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBB-5.png"
+                            },
+                            "displayName": "Bruce Becker",
+                            "active": true,
+                            "timeZone": "Europe/Rome",
+                            "accountType": "atlassian"
+                        },
+                        "created": "2024-08-29T15:47:56.845+0200",
+                        "updated": "2024-08-29T15:47:56.845+0200",
+                        "jsdPublic": true
+                    }
+                ],
+                "self": "https://eu-node.atlassian.net/rest/api/2/issue/11453/comment",
+                "maxResults": 8,
+                "total": 8,
+                "startAt": 0
+            }
+        }
+    },
+    "timestamp": 1724939287187
+}
