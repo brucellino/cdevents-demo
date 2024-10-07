@@ -25,6 +25,7 @@ export default {
           "content-type": "application/json;charset=UTF-8"
         }
       };
+      console.log(init)
       // console.log(JSON.stringify(init));
       const response = await fetch("https://start-test.eoscnode.org/", init);
       const results = await gatherResponse(response)

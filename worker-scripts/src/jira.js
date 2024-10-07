@@ -74,7 +74,14 @@ export default {
 
       if (valid_payload) {
         console.log("Payload verified");
-        await env.QUEUE.send(payload)
+        const message = {
+          ticket_key: payload.issue.key,
+          primary_service_name: payload.issue.customfield_10100.value, // This should be mapped to a managed service tag
+          impacted_service_names: [
+
+          ]
+        }
+        await env.QUEUE.send(message)
         return new Response("OK POST", { status: 201 });
       } else {
         console.log("Jira Payload not verified");
